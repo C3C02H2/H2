@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes rgb-text {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 10s linear infinite;
+}
+
+.rgb-text {
+  background: linear-gradient(
+    to right,
+    #06b6d4,
+    #3b82f6,
+    #10b981,
+    #06b6d4
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: rgb-text 8s ease infinite;
+}
+
+/* Glowing effect */
+.glow {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.glow:hover {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient animations */
+.gradient-animate {
+  background: linear-gradient(
+    270deg,
+    rgba(16, 185, 129, 0.2),
+    rgba(59, 130, 246, 0.2)
+  );
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Team carousel styles */
+.book-container {
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+
+.team-carousel {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.team-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.team-member-card {
+  scroll-snap-align: center;
+  transform-origin: center;
+  transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Navigation dots */
+.nav-dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-center: center;
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background-color: rgb(16, 185, 129);
+}
+
+/* Scroll indicators */
+.scroll-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 20;
+}
+
+.scroll-indicator:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-indicator:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.scroll-indicator.left {
+  left: 1rem;
+}
+
+.scroll-indicator.right {
+  right: 1rem;
+}
+
+/* Team member card animations */
+.team-member-card {
+  position: relative;
+  opacity: 0;
+  transform: scale(0.8) translateX(100px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.team-member-card.prev {
+  opacity: 0;
+  transform: scale(0.8) translateX(-100px);
+}
+
+.team-member-card.active {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+}
+
+.team-member-card.next {
+  opacity: 0;
+  transform: scale(0.8) translateX(100px);
+}
+
+/* Card content animations */
+.team-member-card .relative {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+}
+
+.team-member-card.active .relative {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Image zoom effect */
+.team-member-card img {
+  transform: scale(1.2);
+  transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.team-member-card.active img {
+  transform: scale(1);
+}
+
+/* Arrow icon animations */
+.scroll-indicator svg {
+  transition: transform 0.3s ease;
+}
+
+.scroll-indicator:hover svg {
+  transform: scale(1.2);
+}
+
+.scroll-indicator:active svg {
+  transform: scale(0.9);
+}
+
+/* Glow effect on active card */
+.team-member-card.active .relative {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+}
+
+/* Hydrogen logo text styles */
+.hydrogen-logo-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.5rem;
+  color: rgba(255, 255, 255, 0.15);
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hydrogen-logo-text span {
+  display: block;
+}
