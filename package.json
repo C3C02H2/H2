@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@babel/preset-react": "^7.26.3",
+    "eslint": "^9.18.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.48.0"
+  }
+}
